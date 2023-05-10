@@ -1,0 +1,233 @@
+body {
+	font-family: Arial, sans-serif;
+	/* background-color: purple; */
+	background-image: url('trophee1.png');
+	background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+	max-width: 800px;
+	margin: auto;
+	padding: 20px;
+}
+
+h1 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:50px;
+	letter-spacing:0.1em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    text-shadow: 1.6px 1.6px #ff9a1f, 4px 4px #0911f3;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+#cointext1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: gold;
+    text-transform: uppercase;
+    transition: transform 0.5s ease-in-out;
+}
+
+#cointext1:hover {
+    transform: rotateY(360deg);
+  }
+
+p {
+	text-align: center;
+	margin-top: 0;
+}
+
+.game {
+	background-image: linear-gradient(315deg, #fd0101 0%, #273d51 50%);
+	border: 2px solid #ccc;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.search {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+input[type="text"] {
+	flex-grow: 1;
+	font-size: 16px;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 4px 0 0 4px;
+}
+
+button {
+	background-color: #4CAF50;
+	color: #fff;
+	font-size: 16px;
+	padding: 10px;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
+
+.score {
+    color: silver;
+    font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+#newsList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#newsList li {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+#newsList li:last-child {
+	border-bottom: none;
+}
+
+#newsList li:first-child {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#coins {
+	color: rgb(136, 151, 247);
+	font-weight: bold;
+}
+
+#prizes {
+	color: gold;
+	font-weight: bold;
+}
+
+#prizeCard {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	background-color: #fff;
+	padding: 20px;
+	border: 2px solid #ccc;
+}
+
+#prizeCard img {
+	width: 100%;
+	max-width: 100px;
+	height: auto;
+}
+
+.popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: linear-gradient(to right, #ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #6633cc);
+	border: 2px solid wheat;
+    border-radius: 30px;
+	padding: 11px;
+	z-index: 999;
+}
+
+.prize-card-image {
+	display: block;
+	margin: 0 0;
+	max-width: 100%;
+	height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.prize-card-count {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+	letter-spacing:0.1em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(244, 28, 28);
+    text-shadow: 0.8px 0.8px gold, 2px 2px black;
+	text-align: center;
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+	animation: jump-out 2s ease-in-out infinite;
+	top: 50%;
+}
+
+@keyframes jump-out {
+	0% {
+	  transform: scale(2);
+	}
+	50% {
+	  transform: scale(2.2);
+	}
+	100% {
+	  transform: scale(2);
+	}
+  }
+
+/* prize-card-count title styles */
+.prize-card-count::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #ff80b3, #e8e344);
+    animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
+    transform: translateX(-101%);
+}
+
+.prize-card-count::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
+    transform: translateX(0);
+}
+
+.prize-card-count:nth-of-type(1)::before,
+.prize-card-count:nth-of-type(1)::after{
+    animation-delay: 1s;
+}
+
+.prize-card-count:nth-of-type(2)::before,
+.prize-card-count:nth-of-type(2)::after{
+    animation-delay: 1.5s;
+}
+
+@keyframes a-ltr-after{
+    0% {transform: translateX(-100%)}
+    100% {transform: translateX(101%)}
+}
+
+@keyframes a-ltr-before{
+    0% {transform: translateX(0)}
+    100% {transform: translateX(200%)}
+}
